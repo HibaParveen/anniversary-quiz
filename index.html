@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Love Quiz 💌</title>
+
+<style>
+body{
+    margin:0;
+    background:#ffe6f0;
+    font-family:"Comic Sans MS", cursive;
+    text-align:center;
+    padding:20px;
+}
+
+.card{
+    max-width:420px;
+    margin:auto;
+    background:white;
+    border-radius:20px;
+    padding:25px;
+    box-shadow:0 0 20px pink;
+    animation:pop 0.6s ease;
+}
+
+@keyframes pop{
+    from{transform:scale(0.8);opacity:0;}
+    to{transform:scale(1);opacity:1;}
+}
+
+h2{
+    color:#ff4d6d;
+}
+
+button{
+    display:block;
+    width:100%;
+    margin:10px 0;
+    padding:14px;
+    border:none;
+    border-radius:12px;
+    background:#ff85a2;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#ff4d6d;
+}
+
+.hidden{
+    display:none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<h2>💌 Wedding Anniversary Quiz 💌</h2>
+<p>Answer correctly to unlock our surprise 😄</p>
+
+<div id="q1">
+<p>🌸 Which colour do I like most? </p>
+<button onclick="next(1)">Red</button>
+<button onclick="next(0)">White</button>
+<button onclick="next(0)">Black</button>
+</div>
+
+<div id="q2" class="hidden">
+<p>>🍰 What gift did I give you first? </p>
+<button onclick="next(1)">Watch</button>
+<button onclick="next(0)">Wallet</button>
+<button onclick="next(0)">Shirt</button>
+</div>
+
+<div id="q3" class="hidden">
+<p>🍽️ Which food do I love the most? </p>
+<button onclick="next(1)">Biriyani</button>
+<button onclick="next(0)">Sadhya</button>
+</div>
+
+<div id="final" class="hidden">
+<h2>🎉 Surprise Unlocked 🎉</h2>
+<p>❤️ Happy Wedding Anniversary My Love ❤️</p>
+<p>These 2 years with you are my favorite story.</p>
+</div>
+
+</div>
+
+<script>
+let step=1;
+
+function next(correct){
+
+    if(!correct){
+        alert("Oops 😄 Wrong answer! Try again.");
+        return;
+    }
+
+    if(step===1){
+        document.getElementById("q1").classList.add("hidden");
+        document.getElementById("q2").classList.remove("hidden");
+        step++;
+    }
+    else if(step===2){
+        document.getElementById("q2").classList.add("hidden");
+        document.getElementById("q3").classList.remove("hidden");
+        step++;
+    }
+    else if(step===3){
+        document.getElementById("q3").classList.add("hidden");
+        document.getElementById("final").classList.remove("hidden");
+    }
+}
+</script>
+
+</body>
+</html>
+l̥
