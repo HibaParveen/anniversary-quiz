@@ -62,33 +62,46 @@ button:hover{
 <h2>💌 Wedding Anniversary Quiz 💌</h2>
 <p>Answer correctly to unlock our surprise 😄</p>
 
-<!-- Live Score -->
-<p id="liveScore">Score: 0 / 3</p>
+<p id="liveScore">Score: 0 / 5</p>
 
 <div id="q1">
-<p>🌸 Which colour do I like most? </p>
+<p>🌸 Which colour do I like the most?</p>
 <button onclick="next(0)">Red</button>
 <button onclick="next(0)">White</button>
 <button onclick="next(1)">Black</button>
 </div>
 
 <div id="q2" class="hidden">
-<p>🍰 What gift did I give you first? </p>
+<p>🍰 What was the first gift I gave you?</p>
 <button onclick="next(0)">Watch</button>
 <button onclick="next(1)">Wallet</button>
 <button onclick="next(0)">Shirt</button>
 </div>
 
 <div id="q3" class="hidden">
-<p>🍽️ Which food do I love the most? </p>
+<p>🍽️ Which food do I love the most?</p>
 <button onclick="next(0)">Biriyani</button>
 <button onclick="next(1)">Sadhya</button>
 </div>
 
+<div id="q4" class="hidden">
+<p>🌍 What is my favourite place?</p>
+<button onclick="next(0)">Beach</button>
+<button onclick="next(1)">Forest</button>
+<button onclick="next(0)">Park</button>
+</div>
+
+<div id="q5" class="hidden">
+<p>🎯 What is my favourite hobby?</p>
+<button onclick="next(0)">Reading</button>
+<button onclick="next(1)">Sleeping</button>
+<button onclick="next(0)">Talking</button>
+</div>
+
 <div id="final" class="hidden">
 <h2>🎉 Surprise Unlocked 🎉</h2>
-<p>❤️ Happy Wedding Anniversary My Love ❤️</p>
-<p>These 2 years with you are my favorite story.</p>
+<p>❤️ Happy Wedding Anniversary, My Love ❤️</p>
+<p>These two years with you have been my favorite story.</p>
 <p id="finalScore"></p>
 </div>
 
@@ -105,11 +118,9 @@ function next(correct){
         return;
     }
 
-    // Increase score
     score++;
 
-    // Update live score
-    document.getElementById("liveScore").innerHTML = "Score: " + score + " / 3";
+    document.getElementById("liveScore").innerHTML = "Score: " + score + " / 5";
 
     if(step === 1){
         document.getElementById("q1").classList.add("hidden");
@@ -123,10 +134,20 @@ function next(correct){
     }
     else if(step === 3){
         document.getElementById("q3").classList.add("hidden");
+        document.getElementById("q4").classList.remove("hidden");
+        step++;
+    }
+    else if(step === 4){
+        document.getElementById("q4").classList.add("hidden");
+        document.getElementById("q5").classList.remove("hidden");
+        step++;
+    }
+    else if(step === 5){
+        document.getElementById("q5").classList.add("hidden");
         document.getElementById("final").classList.remove("hidden");
 
         document.getElementById("finalScore").innerHTML =
-            "💖 Your Final Score: " + score + " / 3 💖";
+            "💖 Your Final Score: " + score + " / 5 💖";
     }
 }
 </script>
